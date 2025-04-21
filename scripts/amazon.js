@@ -20,7 +20,7 @@ products.forEach((product) =>{
               src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
             ${product.rating.count}
-              87
+              
             </div>
           </div>
 
@@ -29,7 +29,7 @@ products.forEach((product) =>{
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class = "js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -50,7 +50,8 @@ products.forEach((product) =>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary js-add-to-cart " data-product-id = "${product.id}">
+          <button class="add-to-cart-button button-primary js-add-to-cart " 
+          data-product-id = "${product.id}">
             Add to Cart
           </button>
         </div>
