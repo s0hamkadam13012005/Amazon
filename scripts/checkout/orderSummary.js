@@ -204,4 +204,3 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
 
 }
 
-renderOrderSummary();
