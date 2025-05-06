@@ -7,11 +7,45 @@ import { paymentSummary } from './checkout/paymentSummary.js';
 //import '../data/car.js';
 //import '../data/backend-practice.js'
 import {loadProducts} from '../data/products.js'
+import { loadCart }  from '../data/cart.js';
 
 
+Promise.all([
+    new Promise((resolve)=>{
+       loadProducts(()=>{
+        resolve('value 1');
+       });
+    }),
+    new Promise((resolve)=>{
+        loadCart(()=>{
+            resolve();
+        })
+    })
+]).then((values)=>{
+    console.log(values)
+    renderCheckoutHeader();
+    renderOrderSummary()
+    paymentSummary();
+    
+})
+
+/*
+new Promise((resolve)=>{
+    loadProducts(()=>{
+        resolve();
+
+    })
+}).then(()=>{
+    renderCheckoutHeader();
+renderOrderSummary()
+paymentSummary();
+})*/
+
+/*
  loadProducts(()=>{
     renderCheckoutHeader();
 renderOrderSummary()
 paymentSummary();
 
  })
+*/
