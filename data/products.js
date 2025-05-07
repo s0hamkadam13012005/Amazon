@@ -136,9 +136,12 @@ export function loadProductsFetch() {
     console.log('load products')
     
 
+  }).catch((error)=>{
+    console.log('Error loading Products')
   })
   return promise;
-}/*
+}
+/*
 loadProductsFetch().then(()=>{
   console.log('next step')
 })

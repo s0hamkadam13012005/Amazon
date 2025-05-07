@@ -11,14 +11,20 @@ import { loadCart }  from '../data/cart.js';
 
 
 async function loadPage() {
-  
+  try {
+    //throw 'error4'
     await loadProductsFetch();
 
-   const value =  await new Promise((resolve)=>{
+   const value =  await new Promise((resolve, reject)=>{
         loadCart(()=>{
             resolve('value3');
+           // reject('value3')
         });
     });
+
+} catch(error) {
+    console.log("unexpected error. please try again later")
+}
     renderCheckoutHeader();
     renderOrderSummary()
     paymentSummary();
